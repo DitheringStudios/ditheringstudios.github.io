@@ -1,0 +1,99 @@
+body {
+background-color: #c6d8de;
+overflow-y: scroll;
+margin: 0px;
+padding: 0px;
+}
+
+banner {
+position: static;
+display: flow-root;
+width: 100%;
+top: 0;
+background-color: black;
+text-align: center;
+}
+
+bannerimg {
+max-height: 100%;
+max-width: 99%;
+}
+
+#button-menu {
+display: flex;
+border-spacing: 0px;
+}
+
+button {
+border: 0px;
+width: 100px;
+height: 30px;
+background-color: black;
+}
+
+button:hover {
+border: 1px;
+border-radius: 10px;
+width: 100px;
+height: 30px;
+background-color: #313131;
+}
+
+buttonText {
+color: white;
+}
+
+mainbody {
+top: 100px;
+position: static;
+height: 800px;
+left: 10%;
+right: 10%;
+top: 100px;
+background-color: wheat;
+text-align: center;
+}
+
+table {
+border: 1px solid black;
+}
+
+#content {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+border-collapse: separate;
+border-spacing: 50px 30px;
+}
+
+textByImg {
+height: auto;
+width: auto;
+}
+
+contact {
+color: white;
+}
+
+footer {
+position: static;
+height: 100px;
+width: 100%;
+background-color: black;
+text-align: center;
+}
+			
+h1 {
+color: white;
+font-size: 40px;
+}
+
+h2 {
+color: white;
+font-size: 48px;
+}
+
+maintext {
+color: black;
+font-size: 24px;
+}
