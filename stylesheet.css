@@ -98,6 +98,10 @@ contact {
 color: white;
 }
 
+audio {
+visibility: hidden;
+}
+
 footer {
 position: static;
 height: 100px;
