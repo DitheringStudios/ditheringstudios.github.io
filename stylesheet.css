@@ -58,12 +58,35 @@ table {
 border: 1px solid black;
 }
 
-#content {
+#mainPageSplit {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+border-collapse: separate;
+}
+
+#sides {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+border-collapse: separate;
+}
+
+#mainPageContent {
+width: 100;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
 border-collapse: separate;
 border-spacing: 50px 30px;
+}
+
+#imageTable {
+
+}
+
+#textTable {
+
 }
 
 textByImg {
