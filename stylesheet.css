@@ -146,6 +146,7 @@ font-size: 24px;
   .table-left-s {height: fit;}
   .table-main-s {height: fit;}
   .table-right-s {height: fit;}
+  .button-s {width: 80px}
 }
 
 @media only screen and (min-width: 600px) {
@@ -156,6 +157,7 @@ font-size: 24px;
   .table-left-m {height: fit;}
   .table-main-m {height: fit;}
   .table-right-m {height: fit;}
+  .button-m {width: 100px}
 }
 
 @media only screen and (min-width: 768px) {
@@ -166,4 +168,5 @@ font-size: 24px;
   .table-left-l {height: 815px;}
   .table-main-l {height: 815px;}
   .table-right-l {height: 815px;}
+  .button-l {width: 140px}
 }

@@ -14,10 +14,10 @@
 		<h1> Dithering Studios </h1>
 		<table id="button-menu">
 		<tr>
-			<th><a href="index.html"><button type="button"><buttonText>Home</buttonText></button></a><th>
-			<th><a href="subpages/Games.html"><button type="button"><buttonText>Game's</buttonText></button></a><th>
-			<th><a href="subpages/Projects.html"><button type="button"><buttonText>Project's</buttonText></button></a><th>
-			<th><a href="subpages/ContactUs.html"><button type="button"><buttonText>Contact Us</buttonText></button></a><th>
+			<th><a href="index.html"><button class="button-s button-m button-l" type="button"><buttonText>Home</buttonText></button></a><th>
+			<th><a href="subpages/Games.html"><button class="button-s button-m button-l" type="button"><buttonText>Game's</buttonText></button></a><th>
+			<th><a href="subpages/Projects.html"><button class="button-s button-m button-l" type="button"><buttonText>Project's</buttonText></button></a><th>
+			<th><a href="subpages/ContactUs.html"><button class="button-s button-m button-l" type="button"><buttonText>Contact Us</buttonText></button></a><th>
 		</tr>
 		</table>
 	</banner>
@@ -31,8 +31,8 @@
 				<th>
 				<iframe 
 					  src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUsrg8tTphsV6ptGT1HTioDg"
-					  width="150"
-					  height="85"
+					  width="90%"
+					  height="90%"
 					  allowfullscreen>
 					</iframe>
 				</th>
@@ -66,12 +66,17 @@
 			</table>
 			</div>
 
-			<div class="col-right-s col-right-m col-right-l"><table id="sides" class="table-right-s table-right-m table-right-l">
-			<tr>
+			<div class="col-right-s col-right-m col-right-l">
+				<table id="sides" class="table-right-s table-right-m table-right-l">
 				<th>
-					<p> news feed </p>
+				<select id="myselect" onchange="change_order(this.value)">
+					<option value="">Choose an option:</option>
+					<option value="post1">Most Recent</option>
+					<option value="post2">Oldest</option>
+					<option value="post3">Game Releases</option>
+				</select>
+				<p id="news">test</p>
 				</th>
-			</tr>
 			</table></div>
 		</tr>	
 		</div>
