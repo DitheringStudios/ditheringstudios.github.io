@@ -81,14 +81,6 @@ border-collapse: separate;
 border-spacing: 50px 30px;
 }
 
-#imageTable {
-
-}
-
-#textTable {
-
-}
-
 textByImg {
 height: auto;
 width: auto;
@@ -123,4 +115,55 @@ font-size: 48px;
 maintext {
 color: black;
 font-size: 24px;
+}
+
+
+
+
+[class*="col-left"] {
+  float: left;
+}
+
+[class*="col-right"] {
+  float: right;
+}
+
+[class*="col-main"] {
+  float: inline-start;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@media only screen and (min-width: 300px) {
+/* For mobile phones: */
+  .col-left-s {width: 100%;}
+  .col-main-s {width: 100%;}
+  .col-right-s {width: 100%;}
+  .table-left-s {height: fit;}
+  .table-main-s {height: fit;}
+  .table-right-s {height: fit;}
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-left-m {width: 100%;}
+  .col-main-m {width: 100%;}
+  .col-right-m {width: 100%;}
+  .table-left-m {height: fit;}
+  .table-main-m {height: fit;}
+  .table-right-m {height: fit;}
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-left-l {width: 20%; height: 815px;}
+  .col-main-l {width: 60%; height: 815px;}
+  .col-right-l {width: 20%; height: 815px;}
+  .table-left-l {height: 815px;}
+  .table-main-l {height: 815px;}
+  .table-right-l {height: 815px;}
 }
