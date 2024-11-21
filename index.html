@@ -8,8 +8,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
+<body onload="updateSize()" onresize="updateSize()">
 
-<body>
 	<banner>
 		<h1> Dithering Studios </h1>
 		<table id="button-menu">
@@ -29,7 +29,7 @@
 		<tr>
 			<div class="col-left-s col-left-m col-left-l"><table id="sides" class="table-left-s table-left-m table-left-l">
 				<th>
-				<iframe 
+				<iframe class="media-content-l media-content-m media-content-s"
 					  src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUsrg8tTphsV6ptGT1HTioDg"
 					  width="90%"
 					  height="90%"
@@ -68,15 +68,17 @@
 
 			<div class="col-right-s col-right-m col-right-l">
 				<table id="sides" class="table-right-s table-right-m table-right-l">
-				<th>
-				<select id="myselect" onchange="change_order(this.value)">
-					<option value="">Choose an option:</option>
-					<option value="post1">Most Recent</option>
-					<option value="post2">Oldest</option>
-					<option value="post3">Game Releases</option>
-				</select>
-				<p id="news">test</p>
-				</th>
+					<tr>
+					<select id="myselect" onchange="change_order(this.value)">
+						<option value="">Choose an option:</option>
+						<option value="newest">Most Recent</option>
+						<option value="oldest">Oldest</option>
+						<option value="game">Game Releases</option>
+					</select>
+					</tr>
+					<th>
+						<p id="news"></p>
+					</th>
 			</table></div>
 		</tr>	
 		</div>

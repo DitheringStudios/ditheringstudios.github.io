@@ -1,27 +1,40 @@
-{
-	"posts":[
+[
+	{
+		"date": "10.11.2024",
+		"title": "Day 1 &#127881",
+		"content": "this is a big silly test",
+		"major": true,
+		"images": 1,
+		"image_url": [
+			"temp_logo.png"
+		],
+		"imageText": [
+			"text1"
+		]
+	},
 
-		{"post1":[
-			{"title":"Day 1 &#127881"}
-			{"content":"this is a big silly test"}
-			{"images":"1"}
-			{"image_url":[
-				{"image1":"temp_logo.png"}
-				]
-			}
-			]
-		},
-
-		{"post2":[
-			{"title":"Day 2 &#127881"}
-			{"content":"this is another big silly test"}
-			{"images":"2"}
-			{"image_url":[
-				{"image1":"temp_logo.png"}
-				{"image2":"temp_logo.png"}
-				]
-			}
-			]
-		}
-	]
-}
+	{
+		"date": "20.11.2024",
+		"title": "Day 2 &#127881",
+		"content": "this is a big sillyer test",
+		"major": false,
+		"images": 2,
+		"image_url": [
+			"temp_logo.png",
+			"temp_logo.png"
+		],
+		"imageText": [
+			"text2",
+			"text3"
+		]
+	},
+	{
+		"date": "21.11.2024",
+		"title": "Day 3 &#127881",
+		"content": "this is the big sillyist test",
+		"major": true,
+		"images": 0,
+		"image_url": [],
+		"imageText": []
+	}
+]

@@ -71,7 +71,7 @@ border-collapse: separate;
 }
 
 #mainPageContent {
-width: 100;
+width: 100%;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
@@ -140,31 +140,36 @@ font-size: 24px;
 /* For mobile phones: */
   .col-left-s {width: 100%;}
   .col-main-s {width: 100%;}
-  .col-right-s {width: 100%;}
-  .table-left-s {height: fit;}
-  .table-main-s {height: fit;}
-  .table-right-s {height: fit;}
-  .button-s {width: 80px}
+  .col-right-s {height: 100%; width: 100%; overflow-x: scroll; overflow-y: hidden;}
+  .table-left-s {height: fit-content;}
+  .table-main-s {height: fit-content;}
+  .table-right-s {height: fit-content;}
+  .button-s {width: 80px;}
 }
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   .col-left-m {width: 100%;}
   .col-main-m {width: 100%;}
-  .col-right-m {width: 100%;}
-  .table-left-m {height: fit;}
-  .table-main-m {height: fit;}
-  .table-right-m {height: fit;}
-  .button-m {width: 100px}
+  .col-right-m {height: 100%; width: 100%; overflow-x: scroll; overflow-y: hidden;}
+  .table-left-m {height: fit-content;}
+  .table-main-m {height: fit-content;}
+  .table-right-m {height: fit-content;}
+  .button-m {width: 100px;}
 }
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   .col-left-l {width: 20%; height: 815px;}
   .col-main-l {width: 60%; height: 815px;}
-  .col-right-l {width: 20%; height: 815px;}
+  .col-right-l {max-height: 815px; width: 20%; height: 815px; overflow-x: hidden; overflow-y: scroll;}
   .table-left-l {height: 815px;}
   .table-main-l {height: 815px;}
   .table-right-l {height: 815px;}
-  .button-l {width: 140px}
+  .button-l {width: 140px;}
+}
+
+.post {
+  background-color: darkgray;
+  outline: black solid 2px;
 }
