@@ -72,11 +72,13 @@ border-collapse: separate;
 
 #mainPageContent {
 width: 100%;
-display: flex;
 flex-wrap: wrap;
 justify-content: center;
 border-collapse: separate;
-border-spacing: 50px 30px;
+}
+
+discFeed {
+  width: 100%
 }
 
 textByImg {
@@ -110,13 +112,15 @@ color: white;
 font-size: 48px;
 }
 
+h3 {
+  color: black;
+  font-size: 36px;
+}
+
 maintext {
 color: black;
 font-size: 24px;
 }
-
-
-
 
 [class*="col-left"] {
   float: left;
@@ -172,4 +176,16 @@ font-size: 24px;
 .post {
   background-color: darkgray;
   outline: black solid 2px;
+}
+
+.contact-form {
+  width: 70%;
+  background-color: darkgray;
+  display: inline-grid;
+  align-content: space-evenly;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 18px;
+  line-height: 10px;
+  transform: translate(0px, -100px);
 }

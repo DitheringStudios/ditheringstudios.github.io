@@ -32,7 +32,7 @@ function change_order(selection) {
     elementsArray.forEach(element => {
       element.remove()
     });
-    fetch('Posts/posts.json')
+    fetch('/Posts/posts.json')
         .then(response => response.json())
         .then(newsPosts => {
           const newsFeed = document.getElementById("news");
@@ -56,9 +56,17 @@ function change_order(selection) {
             }
 
             postElement.innerHTML = postHTML;
-            newsFeed.appendChild(postElement)
+            if (newsFeed.hasChildNodes() === false)
+                newsFeed.appendChild(postElement)
+            else
+                newsFeed.insertBefore(postElement, newsFeed.firstChild);
+            let newsAdded =+ 1;
             updateSize()
           });
+            if (newsAdded === 0) {
+                let postElement = '<h2>no news here at the moment please check back later</h2>>'
+                newsFeed.appendChild(postElement)
+            }
         })
         .catch(error => console.error("Error loading news:", error));
   }
@@ -68,7 +76,7 @@ function change_order(selection) {
     elementsArray.forEach(element => {
       element.remove()
     });
-    fetch('Posts/posts.json')
+    fetch('/Posts/posts.json')
         .then(response => response.json())
         .then(newsPosts => {
           const newsFeed = document.getElementById("news");
@@ -93,8 +101,13 @@ function change_order(selection) {
 
             postElement.innerHTML = postHTML;
             newsFeed.appendChild(postElement)
+              let newsAdded =+ 1;
             updateSize()
           });
+            if (newsAdded === 0) {
+                let postElement = '<h2>no news here at the moment please check back later</h2>>'
+                newsFeed.appendChild(postElement)
+            }
         })
         .catch(error => console.error("Error loading news:", error));
   }
@@ -104,7 +117,7 @@ function change_order(selection) {
     elementsArray.forEach(element => {
       element.remove()
     });
-    fetch('Posts/posts.json')
+    fetch('/Posts/posts.json')
         .then(response => response.json())
         .then(newsPosts => {
           const newsFeed = document.getElementById("news");
@@ -132,9 +145,10 @@ function change_order(selection) {
               postElement.innerHTML = postHTML;
               newsFeed.appendChild(postElement)
               updateSize()
+                let newsAdded =+ 1;
             }
-            else {
-              postElement = '<h2>no news here at the moment please check back later</h2>>'
+            if (newsAdded === 0) {
+              let postElement = '<h2>no news here at the moment please check back later</h2>>'
               newsFeed.appendChild(postElement)
             }
           });
@@ -144,7 +158,7 @@ function change_order(selection) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('Posts/posts.json')
+  fetch('/Posts/posts.json')
       .then(response => response.json())
       .then(newsPosts => {
         const newsFeed = document.getElementById("news");
@@ -172,8 +186,13 @@ document.addEventListener("DOMContentLoaded", () => {
             newsFeed.appendChild(postElement)
           else
             newsFeed.insertBefore(postElement, newsFeed.firstChild);
+          let newsAdded =+ 1;
           updateSize()
         });
+          if (newsAdded === 0) {
+              let postElement = '<h2>no news here at the moment please check back later</h2>>'
+              newsFeed.appendChild(postElement)
+          }
       })
       .catch(error => console.error("Error loading news:", error));
 });

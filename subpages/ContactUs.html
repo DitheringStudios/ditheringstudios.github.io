@@ -1,100 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title> Dithering Studios &#127881 </title>
-		<link rel="icon" type="image/png" href="../temp_logo.png">
-		<link rel="stylesheet" href="../stylesheet.css">
-		<script src="../javascript_my_beloved.js"></script>
-	</head>
+<head>
+	<title> Dithering Studios &#127881 </title>
+	<link rel="icon" type="image/png" href="../temp_logo.png">
+	<link rel="stylesheet" href="../stylesheet.css">
+	<script src="../javascript_my_beloved.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
+<body onload="updateSize()" onresize="updateSize()">
 
-<body>
-	<banner>
-		<h1> Dithering Studios </h1>
-		<table id="button-menu">
+<banner>
+	<h1> Dithering Studios </h1>
+	<table id="button-menu">
 		<tr>
-			<th><a href="../index.html"><button type="button"><buttonText>Home</buttonText></button></a><th>
-			<th><a href="Games.html"><button type="button"><buttonText>Game's</buttonText></button></a><th>
-			<th><a href="Projects.html"><button type="button"><buttonText>Project's</buttonText></button></a><th>
-			<th><a href="ContactUs.html"><button type="button"><buttonText>Contact Us</buttonText></button></a><th>
+			<th><a href="../index.html"><button class="button-s button-m button-l" type="button"><buttonText>Home</buttonText></button></a><th>
+			<th><a href="Games.html"><button class="button-s button-m button-l" type="button"><buttonText>Game's</buttonText></button></a><th>
+			<th><a href="Projects.html"><button class="button-s button-m button-l" type="button"><buttonText>Project's</buttonText></button></a><th>
+			<th><a href="ContactUs.html"><button class="button-s button-m button-l" type="button"><buttonText>Contact Us</buttonText></button></a><th>
 		</tr>
-		</table>
-	</banner>
+	</table>
+</banner>
 
 
-	<mainbody>
+<mainbody>
 
-		<table id="mainPageSplit">
+	<div class="row">
 		<tr>
-			<th><table id="sides">
-			<tr>
+			<div class="col-left-s col-left-m col-left-l"><table id="sides" class="table-left-s table-left-m table-left-l">
 				<th>
-				<iframe 
-					  src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUsrg8tTphsV6ptGT1HTioDg"
-					  width="300"
-					  height="170"
-					  allowfullscreen>
+					<iframe class="media-content-l media-content-m media-content-s"
+							src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUsrg8tTphsV6ptGT1HTioDg"
+							width="90%"
+							height="90%"
+							allowfullscreen>
 					</iframe>
 				</th>
-			</tr>
-			</table></th>
+			</table></div>
 
-			<th><table id="mainPageContent">
-			<tr>
-				<th><img src="../All_Game_Previews/GamePreviewPlaceHolder.png"></th>
-				<th><textByImg>
-					<p> testing :D </p>
-				</textByImg></th>
-			</tr>
-			<tr>
-				<th><textByImg>
-					<p> testing :D </p>
-				</textByImg></th>
-				<th><img src="../All_Game_Previews/GamePreviewPlaceHolder.png"></th>
-			</tr>
-			<tr>
-				<th><img src="../All_Game_Previews/GamePreviewPlaceHolder.png"></th>
-				<th><textByImg>
-					<p> testing :D </p>
-				</textByImg></th>
-			</tr>
-			<tr>
-				<th><textByImg>
-					<p> testing :D </p>
-				</textByImg></th>
-				<th><img src="../All_Game_Previews/GamePreviewPlaceHolder.png"></th>
-			</tr>
-			</table></th>
-
-			<th><table id="sides">
-			<tr>
-				<th>
-				<iframe 
-					  src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUsrg8tTphsV6ptGT1HTioDg"
-					  width="300"
-					  height="170"
-					  allowfullscreen>
-					</iframe>
-				</th>
-			</tr>
-			<tr>
-
-				<th>
-					<audio controls autoplay>
-						<source src="../game_audio_sample.mp3" type="audio/mpeg">
-						Your browser does not support the audio element.
-					</audio>
-				</th>
-			</tr>
+			<div class="col-main-s col-main-m col-main-l"><table id="mainPageContent" class="table-main-s table-main-m table-main-l">
+				<tr>
+					<th>
+						<form action="placeholder" class="contact-form" method="post">
+							<label for="fname">First name:</label><br>
+							<input type="text" id="fname" name="fname" placeholder=" first name..."><br>
+							<label for="lname">Last name:</label><br>
+							<input type="text" id="lname" name="lname" placeholder=" first name..."><br>
+							<label for="email">Email:</label><br>
+							<input type="email" id="email" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" placeholder="name@domain.co.uk or .com"><br>
+							<label for="reason">Select a reason</label><br>
+							<select id="reason" name="reason">
+								<option value=" " disabled>Choose an option:</option>
+								<option value=" " aria-disabled=""> </option>
+								<option value="bug">bug</option>
+								<option value="suggestion">suggestion</option>
+								<option value="inquiry">inquiry</option>
+								<option value="other">other</option>
+							</select><br>
+							<label for="content">Please explain further:</label><br>
+							<textarea id="content" name="content" spellcheck="true" style="width:250px;height:150px;"></textarea>
+							<p> </p>
+							<input type="submit" value="submit">
+						</form>
+					</th>
+				</tr>
 			</table>
-		</tr>	
-		</table>
-	</mainbody>
+			</div>
 
-	<footer>
-		<img src="../footerimg.png">
-        	<span><buttonText>&copy; 2024 Dithering Studios. Some rights reserved.</buttonText></span>
-	</footer>
+			<div class="col-right-s col-right-m col-right-l">
+				<table id="sides" class="table-right-s table-right-m table-right-l">
+					<tr>
+						<select id="myselect" onchange="change_order(this.value)">
+							<option value="">Choose an option:</option>
+							<option value="newest">Most Recent</option>
+							<option value="oldest">Oldest</option>
+							<option value="game">Game Releases</option>
+						</select>
+					</tr>
+					<th>
+						<p id="news"></p>
+					</th>
+				</table></div>
+		</tr>
+	</div>
+</mainbody>
 
-	</body>
+<discFeed>
+	<a href="https://discord.gg/eJ7Vm3qCDW"><img src="../disc_invite.png" style="width: 100%;"/></a>
+</discFeed>
+
+<footer>
+	<img src="../footerimg.png">
+	<span><buttonText>&copy; 2024 Dithering Studios. Some rights reserved.</buttonText></span>
+	<audio controls autoplay>
+		<source src="../game_audio_sample.mp3" type="audio/mpeg">
+	</audio>
+</footer>
+
+</body>
 </html>

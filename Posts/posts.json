@@ -3,10 +3,10 @@
 		"date": "10.11.2024",
 		"title": "Day 1 &#127881",
 		"content": "this is a big silly test",
-		"major": true,
+		"major": false,
 		"images": 1,
 		"image_url": [
-			"temp_logo.png"
+			"/temp_logo.png"
 		],
 		"imageText": [
 			"text1"
@@ -20,8 +20,8 @@
 		"major": false,
 		"images": 2,
 		"image_url": [
-			"temp_logo.png",
-			"temp_logo.png"
+			"/temp_logo.png",
+			"/temp_logo.png"
 		],
 		"imageText": [
 			"text2",
