@@ -55,13 +55,13 @@
 	},
 
 	{
-	"date": "pre 26.10.2024",
-	"title": "DevLog #1",
-	"content": "temp assets were purchased so work can begin and an inventory system, ui for inventory and hotbar, basic combat system, most player animations, complete movement system, basic start menu, complete pickup system and early version of character customisation have been completed",
-	"devlog": true,
-	"major": false,
-	"images": 0,
-	"image_url": [],
-	"imageText": []
-}
+		"date": "pre 26.10.2024",
+		"title": "DevLog #1",
+		"content": "temp assets were purchased so work can begin and an inventory system, ui for inventory and hotbar, basic combat system, most player animations, complete movement system, basic start menu, complete pickup system and early version of character customisation have been completed",
+		"devlog": true,
+		"major": false,
+		"images": 0,
+		"image_url": [],
+		"imageText": []
+	}
 ]
