@@ -48,7 +48,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -109,7 +109,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -170,7 +170,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -232,7 +232,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -297,7 +297,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -363,7 +363,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -429,7 +429,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -496,7 +496,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Web/Posts/posts.json')
+        fetch('/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -561,7 +561,7 @@ function keepLoading() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('/Web/Posts/posts.json')
+  fetch('/Posts/posts.json')
       .then(response => response.json())
       .then(newsPosts => {
         const newsFeed = document.getElementById("news");
