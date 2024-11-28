@@ -3,23 +3,34 @@ function updateSize() {
   const elementHead = document.getElementById("news")
   const elements = document.getElementsByClassName("post");
   const elementsArray = Array.from(elements);
+  const elementButton = document.getElementsByClassName("loadMoreButton");
+  const elementButtonsArray = Array.from(elementButton);
   if (window_width > 768) {
     elementsArray.forEach(element => {
       element.style.float = "none";
     })
     elementHead.style.display = "block";
+    elementButtonsArray.forEach(elementButtons => {
+        elementButtons.style.height = "auto";
+    })
 
   } else if (window_width > 600) {
     elementsArray.forEach(element => {
       element.style.float = "inline-start";
     })
     elementHead.style.display = "inline-flex";
+    elementButtonsArray.forEach(elementButtons => {
+        elementButtons.style.height = "1300";
+    })
 
   } else if (window_width > 300) {
     elementsArray.forEach(element => {
       element.style.float = "inline-start";
     });
     elementHead.style.display = "inline-flex";
+    elementButtonsArray.forEach(elementButtons => {
+        elementButtons.style.height = "1300";
+    })
   }
 }
 
@@ -37,7 +48,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -98,7 +109,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -159,7 +170,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -221,7 +232,7 @@ function change_order(selection) {
         buttonElementsArray.forEach(buttonElement => {
             buttonElement.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -286,7 +297,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -352,7 +363,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -418,7 +429,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -485,7 +496,7 @@ function keepLoading() {
         elementsArray.forEach(element => {
             element.remove()
         });
-        fetch('/Posts/posts.json')
+        fetch('/Web/Posts/posts.json')
             .then(response => response.json())
             .then(newsPosts => {
                 const newsFeed = document.getElementById("news");
@@ -550,7 +561,7 @@ function keepLoading() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('/Posts/posts.json')
+  fetch('/Web/Posts/posts.json')
       .then(response => response.json())
       .then(newsPosts => {
         const newsFeed = document.getElementById("news");
