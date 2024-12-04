@@ -1,16 +1,28 @@
 function updateSize() {
   let window_width = window.innerWidth;
-  const elementHead = document.getElementById("news")
+  const elementHead = document.getElementById("news");
   const elements = document.getElementsByClassName("post");
+  const elementHeadForGames = document.getElementById("game_releases");
+  const elementsForGames = document.getElementsByClassName("gamePost");
   const elementsArray = Array.from(elements);
+  const elementsArrayGame = Array.from(elementsForGames);
   const elementButton = document.getElementsByClassName("loadMoreButton");
+  const elementButtonForGame = document.getElementsByClassName("loadMoreButtonForGame");
   const elementButtonsArray = Array.from(elementButton);
+  const elementButtonsArrayForGame = Array.from(elementButtonForGame);
   if (window_width > 768) {
     elementsArray.forEach(element => {
       element.style.float = "none";
     })
+      elementsArrayGame.forEach(element => {
+          element.style.float = "none";
+    })
     elementHead.style.display = "block";
+    elementHeadForGames.style.display = "block";
     elementButtonsArray.forEach(elementButtons => {
+        elementButtons.style.height = "auto";
+    })
+    elementButtonsArrayForGame.forEach(elementButtons => {
         elementButtons.style.height = "auto";
     })
 
@@ -18,8 +30,15 @@ function updateSize() {
     elementsArray.forEach(element => {
       element.style.float = "inline-start";
     })
+    elementsArrayGame.forEach(element => {
+      element.style.float = "inline-start";
+    })
     elementHead.style.display = "inline-flex";
+    elementHeadForGames.style.display = "inline-flex";
     elementButtonsArray.forEach(elementButtons => {
+        elementButtons.style.height = "1300";
+    })
+    elementButtonsArrayForGame.forEach(elementButtons => {
         elementButtons.style.height = "1300";
     })
 
@@ -27,8 +46,15 @@ function updateSize() {
     elementsArray.forEach(element => {
       element.style.float = "inline-start";
     });
+    elementsArrayGame.forEach(element => {
+      element.style.float = "inline-start";
+    });
     elementHead.style.display = "inline-flex";
+    elementHeadForGames.style.display = "inline-flex";
     elementButtonsArray.forEach(elementButtons => {
+        elementButtons.style.height = "1300";
+    })
+    elementButtonsArrayForGame.forEach(elementButtons => {
         elementButtons.style.height = "1300";
     })
   }
@@ -614,3 +640,647 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(error => console.error("Error loading news:", error));
 });
+
+function load_games() {
+    fetch('/Posts/games.json')
+        .then(response => response.json())
+        .then(gameReleases => {
+            const gameFeed = document.getElementById("game_releases");
+            let i = 0;
+            let gamesAdded = 0;
+            gameReleases.forEach(game => {
+                if (i < 5) {
+                    i++
+                    const GamePostElement = document.createElement("div");
+                    GamePostElement.classList.add("gamePost");
+                    GamePostElement.style.float = "inline-start";
+
+                    // Basic post content
+                    let gamePostHTML = `
+                    <h2>${game.title}</h2>
+                    <p><small>${game.date}</small></p>
+                    <p>${game.content}</p>
+                `;
+
+                    // Add images dynamically
+                    if (game.images > 0) {
+                        game.image_url.forEach(image_url => {
+                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                        });
+                    }
+
+                    GamePostElement.innerHTML = gamePostHTML;
+                    gameFeed.appendChild(GamePostElement)
+                    gamesAdded++;
+                    updateSize()
+                }
+            });
+            if (gamesAdded === 0) {
+                const noNews = document.createElement("div");
+                noNews.classList.add("gamePost")
+                noNews.innerHTML = `<h2>no news here at the moment please check back later</h2>`
+                gameFeed.appendChild(noNews)
+            }
+            if (gamesAdded > 0 && gameReleases.length > 5) {
+                const loadMoreButton = document.createElement("button");
+                loadMoreButton.classList.add("loadMoreButtonForGame")
+                loadMoreButton.style.border = "1px";
+                loadMoreButton.style.borderRadius = "10px";
+                loadMoreButton.style.height = "1300px";
+                loadMoreButton.onclick = keepLoadingGames
+                loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                gameFeed.appendChild(loadMoreButton)
+            }
+        })
+        .catch(error => console.error("Error loading news:", error));
+}
+
+function keepLoadingGames() {
+    const elements = document.getElementsByClassName("loadMoreButtonForGame");
+    const elementsArray = Array.from(elements);
+    let selection = document.getElementById("mySelectForGames")
+
+    if (selection.value === "newest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        fetch('/Posts/games.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                let elementsLoaded = gameFeed.children.length
+                gameReleases.forEach(function(game, index) {
+                    if (index < elementsLoaded)
+                    {
+                        console.log("already loaded")
+                    }
+                    else {
+                        if (i < 5) {
+                            i++
+                            const GamePostElement = document.createElement("div");
+                            GamePostElement.classList.add("gamePost");
+                            GamePostElement.style.float = "inline-start";
+
+                            // Basic post content
+                            let gamePostHTML = `
+                                <h2>${game.title}</h2>
+                                <p><small>${game.date}</small></p>
+                                <p>${game.content}</p>
+                            `;
+
+                            // Add images dynamically
+                            if (game.images > 0) {
+                                game.image_url.forEach(image_url => {
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                });
+                            }
+
+                            GamePostElement.innerHTML = gamePostHTML;
+                            gameFeed.appendChild(gamePostHTML)
+                            gamesAdded++;
+                            updateSize()
+                        }
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no more news</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded >= 5)
+                {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingGames
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    gameFeed.appendChild(loadMoreButton)
+                }
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+
+
+    if (selection.value === "oldest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        fetch('/Posts/games.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                let elementsLoaded = newsFeed.children.length
+                gameReleases.reverse().forEach(function(game, index) {
+                    if (index < elementsLoaded)
+                    {
+                        console.log("already loaded")
+                    }
+                    else {
+                        if (i < 5) {
+                            i++
+                            const GamePostElement = document.createElement("div");
+                            GamePostElement.classList.add("gamePost");
+                            GamePostElement.style.float = "inline-start";
+
+                            // Basic post content
+                            let gamePostHTML = `
+                                <h2>${game.title}</h2>
+                                <p><small>${game.date}</small></p>
+                                <p>${game.content}</p>
+                            `;
+
+                            // Add images dynamically
+                            if (game.images > 0) {
+                                game.image_url.forEach(image_url => {
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                });
+                            }
+
+                            GamePostElement.innerHTML = gamePostHTML;
+                            gameFeed.appendChild(GamePostElement)
+                            updateSize()
+                            gamesAdded++
+                        }
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no more news</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded >= 5) {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingGames
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    gameFeed.appendChild(loadMoreButton)
+                }
+
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+}
+
+function change_order_games(selection) {
+    const elements = document.getElementsByClassName("gamePost");
+    const elementsArray = Array.from(elements);
+    const buttonElements = document.getElementsByClassName("loadMoreButtonForGame");
+    const buttonElementsArray = Array.from(buttonElements);
+
+
+    if (selection === "newest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        buttonElementsArray.forEach(buttonElement => {
+            buttonElement.remove()
+        });
+        fetch('/Posts/games.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                gameReleases.forEach(game => {
+                    if (i < 5) {
+                        i++
+                        const GamePostElement = document.createElement("div");
+                        GamePostElement.classList.add("gamePost");
+                        GamePostElement.style.float = "inline-start";
+
+                        // Basic post content
+                        let gamePostHTML = `
+                      <h2>${game.title}</h2>
+                      <p><small>${game.date}</small></p>
+                      <p>${game.content}</p>
+                  `;
+
+                        // Add images dynamically
+                        if (game.images > 0) {
+                            game.image_url.forEach(image_url => {
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                            });
+                        }
+
+                        GamePostElement.innerHTML = gamePostHTML;
+                        gameFeed.appendChild(GamePostElement)
+                        gamesAdded++;
+                        updateSize()
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no games here at the moment please check back later</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded > 0 && gameReleases.length > 5) {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingGames
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    newsFeed.appendChild(loadMoreButton)
+                }
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+
+
+    if (selection === "oldest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        buttonElementsArray.forEach(buttonElement => {
+            buttonElement.remove()
+        });
+        fetch('/Posts/games.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                gameReleases.reverse().forEach(game => {
+                    if (i < 5) {
+                        i++
+                        const GamePostElement = document.createElement("div");
+                        GamePostElement.classList.add("gamePost");
+                        GamePostElement.style.float = "inline-start";
+
+                        // Basic post content
+                        let gamePostHTML = `
+                      <h2>${game.title}</h2>
+                      <p><small>${game.date}</small></p>
+                      <p>${game.content}</p>
+                  `;
+
+                        // Add images dynamically
+                        if (game.images > 0) {
+                            game.image_url.forEach(image_url => {
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                            });
+                        }
+
+                        GamePostElement.innerHTML = gamePostHTML;
+                        gameFeed.appendChild(GamePostElement)
+                        updateSize()
+                        gamesAdded++
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no news here at the moment please check back later</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded > 0 && gameReleases.length > 5) {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingGames
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    gameFeed.appendChild(loadMoreButton)
+                }
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+}
+
+
+
+
+
+function load_projects() {
+    fetch('/Posts/projects.json')
+        .then(response => response.json())
+        .then(gameReleases => {
+            const gameFeed = document.getElementById("game_releases");
+            let i = 0;
+            let gamesAdded = 0;
+            gameReleases.forEach(game => {
+                if (i < 5) {
+                    i++
+                    const GamePostElement = document.createElement("div");
+                    GamePostElement.classList.add("gamePost");
+                    GamePostElement.style.float = "inline-start";
+
+                    // Basic post content
+                    let gamePostHTML = `
+                    <h2>${game.title}</h2>
+                    <p><small>${game.date}</small></p>
+                    <p>${game.content}</p>
+                `;
+
+                    // Add images dynamically
+                    if (game.images > 0) {
+                        game.image_url.forEach(image_url => {
+                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                        });
+                    }
+
+                    GamePostElement.innerHTML = gamePostHTML;
+                    gameFeed.appendChild(GamePostElement)
+                    gamesAdded++;
+                    updateSize()
+                }
+            });
+            if (gamesAdded === 0) {
+                const noNews = document.createElement("div");
+                noNews.classList.add("gamePost")
+                noNews.innerHTML = `<h2>no news here at the moment please check back later</h2>`
+                gameFeed.appendChild(noNews)
+            }
+            if (gamesAdded > 0 && gameReleases.length > 5) {
+                const loadMoreButton = document.createElement("button");
+                loadMoreButton.classList.add("loadMoreButtonForGame")
+                loadMoreButton.style.border = "1px";
+                loadMoreButton.style.borderRadius = "10px";
+                loadMoreButton.style.height = "1300px";
+                loadMoreButton.onclick = keepLoadingProjects
+                loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                gameFeed.appendChild(loadMoreButton)
+            }
+        })
+        .catch(error => console.error("Error loading news:", error));
+}
+
+function keepLoadingProjects() {
+    const elements = document.getElementsByClassName("loadMoreButtonForGame");
+    const elementsArray = Array.from(elements);
+    let selection = document.getElementById("mySelectForGames")
+
+    if (selection.value === "newest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        fetch('/Posts/projects.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                let elementsLoaded = gameFeed.children.length
+                gameReleases.forEach(function(game, index) {
+                    if (index < elementsLoaded)
+                    {
+                        console.log("already loaded")
+                    }
+                    else {
+                        if (i < 5) {
+                            i++
+                            const GamePostElement = document.createElement("div");
+                            GamePostElement.classList.add("gamePost");
+                            GamePostElement.style.float = "inline-start";
+
+                            // Basic post content
+                            let gamePostHTML = `
+                                <h2>${game.title}</h2>
+                                <p><small>${game.date}</small></p>
+                                <p>${game.content}</p>
+                            `;
+
+                            // Add images dynamically
+                            if (game.images > 0) {
+                                game.image_url.forEach(image_url => {
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                });
+                            }
+
+                            GamePostElement.innerHTML = gamePostHTML;
+                            gameFeed.appendChild(gamePostHTML)
+                            gamesAdded++;
+                            updateSize()
+                        }
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no more news</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded >= 5)
+                {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingProjects
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    gameFeed.appendChild(loadMoreButton)
+                }
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+
+
+    if (selection.value === "oldest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        fetch('/Posts/projects.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                let elementsLoaded = newsFeed.children.length
+                gameReleases.reverse().forEach(function(game, index) {
+                    if (index < elementsLoaded)
+                    {
+                        console.log("already loaded")
+                    }
+                    else {
+                        if (i < 5) {
+                            i++
+                            const GamePostElement = document.createElement("div");
+                            GamePostElement.classList.add("gamePost");
+                            GamePostElement.style.float = "inline-start";
+
+                            // Basic post content
+                            let gamePostHTML = `
+                                <h2>${game.title}</h2>
+                                <p><small>${game.date}</small></p>
+                                <p>${game.content}</p>
+                            `;
+
+                            // Add images dynamically
+                            if (game.images > 0) {
+                                game.image_url.forEach(image_url => {
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                });
+                            }
+
+                            GamePostElement.innerHTML = gamePostHTML;
+                            gameFeed.appendChild(GamePostElement)
+                            updateSize()
+                            gamesAdded++
+                        }
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no more news</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded >= 5) {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingProjects
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    gameFeed.appendChild(loadMoreButton)
+                }
+
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+}
+
+function change_order_projects(selection) {
+    const elements = document.getElementsByClassName("gamePost");
+    const elementsArray = Array.from(elements);
+    const buttonElements = document.getElementsByClassName("loadMoreButtonForGame");
+    const buttonElementsArray = Array.from(buttonElements);
+
+
+    if (selection === "newest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        buttonElementsArray.forEach(buttonElement => {
+            buttonElement.remove()
+        });
+        fetch('/Posts/projects.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                gameReleases.forEach(game => {
+                    if (i < 5) {
+                        i++
+                        const GamePostElement = document.createElement("div");
+                        GamePostElement.classList.add("gamePost");
+                        GamePostElement.style.float = "inline-start";
+
+                        // Basic post content
+                        let gamePostHTML = `
+                      <h2>${game.title}</h2>
+                      <p><small>${game.date}</small></p>
+                      <p>${game.content}</p>
+                  `;
+
+                        // Add images dynamically
+                        if (game.images > 0) {
+                            game.image_url.forEach(image_url => {
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                            });
+                        }
+
+                        GamePostElement.innerHTML = gamePostHTML;
+                        gameFeed.appendChild(GamePostElement)
+                        gamesAdded++;
+                        updateSize()
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no games here at the moment please check back later</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded > 0 && gameReleases.length > 5) {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingProjects
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    newsFeed.appendChild(loadMoreButton)
+                }
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+
+
+    if (selection === "oldest") {
+        elementsArray.forEach(element => {
+            element.remove()
+        });
+        buttonElementsArray.forEach(buttonElement => {
+            buttonElement.remove()
+        });
+        fetch('/Posts/projects.json')
+            .then(response => response.json())
+            .then(gameReleases => {
+                const gameFeed = document.getElementById("game_releases");
+                let i = 0;
+                let gamesAdded = 0;
+                gameReleases.reverse().forEach(game => {
+                    if (i < 5) {
+                        i++
+                        const GamePostElement = document.createElement("div");
+                        GamePostElement.classList.add("gamePost");
+                        GamePostElement.style.float = "inline-start";
+
+                        // Basic post content
+                        let gamePostHTML = `
+                      <h2>${game.title}</h2>
+                      <p><small>${game.date}</small></p>
+                      <p>${game.content}</p>
+                  `;
+
+                        // Add images dynamically
+                        if (game.images > 0) {
+                            game.image_url.forEach(image_url => {
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                            });
+                        }
+
+                        GamePostElement.innerHTML = gamePostHTML;
+                        gameFeed.appendChild(GamePostElement)
+                        updateSize()
+                        gamesAdded++
+                    }
+                });
+                if (gamesAdded === 0) {
+                    const noNews = document.createElement("div");
+                    noNews.classList.add("gamePost")
+                    noNews.innerHTML = `<h2>no news here at the moment please check back later</h2>`
+                    gameFeed.appendChild(noNews)
+                }
+                if (gamesAdded > 0 && gameReleases.length > 5) {
+                    const loadMoreButton = document.createElement("button");
+                    loadMoreButton.classList.add("loadMoreButtonForGame")
+                    loadMoreButton.style.border = "1px";
+                    loadMoreButton.style.borderRadius = "10px";
+                    loadMoreButton.style.height = "1300px";
+                    loadMoreButton.onclick = keepLoadingProjects
+                    loadMoreButton.innerHTML = `<buttonText>load more</buttonText>`
+                    gameFeed.appendChild(loadMoreButton)
+                }
+            })
+            .catch(error => console.error("Error loading news:", error));
+    }
+}

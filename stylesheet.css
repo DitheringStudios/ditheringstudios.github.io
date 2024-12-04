@@ -174,9 +174,6 @@ maintext {
   .button-s {
     width: 100%;
   }
-
-  .post {
-  }
 }
 
 @media only screen and (min-width: 600px) {
@@ -210,9 +207,6 @@ maintext {
 
   .button-m {
     width: 100%;
-  }
-
-  .post {
   }
 }
 
@@ -251,12 +245,14 @@ maintext {
   .button-l {
     width: 100%;
   }
-
-  .post {
-  }
 }
 
 .post {
+  background-color: darkgray;
+  outline: black solid 2px;
+}
+
+.gamePost {
   background-color: darkgray;
   outline: black solid 2px;
 }
