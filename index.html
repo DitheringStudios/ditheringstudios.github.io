@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 
-<body onload="updateSize()" onresize="updateSize()">
+<body onload="updateSize(); LoadVideos();" onresize="updateSize()">
 
 	<banner>
 		<h1> Dithering Studios </h1>
@@ -23,19 +23,21 @@
 	</banner>
 
 
-	<mainbody>
+	<mainbody id="index">
 
 		<div class="row">
-		<tr>
 			<div class="col-left-s col-left-m col-left-l"><table id="sides" class="table-left-s table-left-m table-left-l">
+				<tr>
 				<th>
-				<iframe class="media-content-l media-content-m media-content-s"
-					  src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUsrg8tTphsV6ptGT1HTioDg"
-					  width="90%"
-					  height="90%"
-					  allowfullscreen>
-					</iframe>
+<!--					<iframe class="media-content-l media-content-m media-content-s"-->
+<!--							src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUsrg8tTphsV6ptGT1HTioDg"-->
+<!--							width="90%"-->
+<!--							height="90%"-->
+<!--							allowfullscreen>-->
+<!--					</iframe>-->
+					<p id="videoColum"></p>
 				</th>
+				</tr>
 			</table></div>
 
 			<div class="col-main-s col-main-m col-main-l"><table id="mainPageContent" class="table-main-s table-main-m table-main-l">
@@ -69,18 +71,17 @@
 			<div class="col-right-s col-right-m col-right-l">
 				<table id="sides" class="table-right-s table-right-m table-right-l">
 					<tr>
-					<select id="myselect" onchange="change_order(this.value)">
-						<option value="newest">Most Recent</option>
-						<option value="oldest">Oldest</option>
-						<option value="game">Game Releases</option>
-						<option value="devlog">DevLog</option>
-					</select>
+						<select id="myselect" onchange="change_order(this.value)">
+							<option value="newest">Most Recent</option>
+							<option value="oldest">Oldest</option>
+							<option value="game">Game Releases</option>
+							<option value="devlog">DevLog</option>
+						</select>
 					</tr>
 					<th>
 						<p id="news"></p>
 					</th>
-			</table></div>
-		</tr>	
+				</table></div>
 		</div>
 	</mainbody>
 

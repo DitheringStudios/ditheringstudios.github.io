@@ -65,7 +65,14 @@ table {
   border-collapse: separate;
 }
 
-#sides {
+#side-l {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-collapse: separate;
+}
+
+#side-r {
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
