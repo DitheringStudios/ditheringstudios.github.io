@@ -30,7 +30,7 @@ client.once('ready', async () => {
 client.on('threadCreate', async (thread) => {
     try {
         const DevlogChannelId = '1289302843269845104';
-        const MajorChannelID = '1289302843269845104';
+        const MajorChannelID = 'null';
         if (toString(thread.parent?.id) === DevlogChannelId)
 
         console.log(`New forum post detected: ${thread.name}`);
