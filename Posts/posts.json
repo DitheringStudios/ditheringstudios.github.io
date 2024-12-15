@@ -1,33 +1,5 @@
 [
   {
-    "date": "Test 69",
-    "title": "DevLog #8",
-    "content": "Bug test",
-    "devlog": true,
-    "major": false,
-    "images": 1,
-    "image_url": [
-      "/All_Game_Previews/post_images/"
-    ],
-    "imageText": [
-      "Test 69.1"
-    ]
-  },
-  {
-    "date": "another final test...",
-    "title": "DevLog #7",
-    "content": "please work",
-    "devlog": true,
-    "major": false,
-    "images": 1,
-    "image_url": [
-      "/All_Game_Previews/post_images/"
-    ],
-    "imageText": [
-      "another final test....1"
-    ]
-  },
-  {
     "date": "04.11.2024 - 25.11.2024",
     "title": "DevLog #6",
     "content": "a lot of progress happened at the start of November such everything corrupting which gave me the perfect reason to switch to unity6 something I've wanted to do since it released after making the move small bits of progress happened here and there such as a start menu that both looks ok and works but the game has mostly put on hold due to me being busy with other stuff such as a website for us(only in the past week or two but plenty of progress made and works well), I've also been helping other people learn unity and c# as this helps me check I know stuff so its worth doing, also doing a lot of personal stuff as I'm not on a strict timeframe for the game. In terms of future plans I'm going to start making some basic sprits that will likely just be text to say hat an action is and then coding the mechanics behind more of our planned features I may also start on some level/map design but devlogs will be less often now the game is at the current point where the mechanics which will obviously be in the game(movement, inventory, animations, start menu, etc). The final thing ill say is that i have begun work on npc ai :D",
