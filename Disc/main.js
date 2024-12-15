@@ -23,15 +23,19 @@ const commitFileToGitHub = async (filePath, repoPath, commitMessage) => {
             const { data } = await axios.get(
                 `https://api.github.com/repos/${OWNER}/${REPO}/contents/${repoPath}`,
                 {
-                    headers: { Authorization: `token (GITHUB_TOKEN}` },
+                    headers: { Authorization: `token ${GITHUB_TOKEN}` },
                 }
             );
             return data.sha;
         } catch (error) {
-            if (error.response?.status === 404) return null;
+            if (error.response?.status === 404) {
+                console.log(`File not found on GitHub: ${repoPath}. Creating new file.`);
+                return null;
+            }
             throw error;
         }
     };
+
     try {
         const fileContent = fs.readFileSync(filePath);
         const sha = await getSha();
@@ -55,20 +59,6 @@ const commitFileToGitHub = async (filePath, repoPath, commitMessage) => {
     }
 };
 
-const getSha = async () => {
-    try {
-        const { data } = await axios.get(
-            `https://api.github.com/repos/${OWNER}/${REPO}/contents/${repoPath}`,
-            {
-                headers: { Authorization: `token ${GITHUB_TOKEN}` },
-            }
-        );
-        return data.sha;
-    } catch (error) {
-        if (error.response?.status === 404) return null;
-        throw error;
-    }
-};
 
 const writeToJson = async (data, fileName = '../Posts/posts.json') => {
     const jsonData = JSON.stringify(data, null, 2);
