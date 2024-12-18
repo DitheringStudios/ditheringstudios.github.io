@@ -1,13 +1,17 @@
 [
   {
-    "date": "Test 70",
+    "date": "test",
     "title": "DevLog #7",
-    "content": "Djshbwbs",
+    "content": "mjidsuifiudfihsdfhsdjc",
     "devlog": true,
     "major": false,
     "images": 1,
-    "image_url": [],
-    "imageText": []
+    "image_url": [
+      "/Posts/post_images/test.1.png"
+    ],
+    "imageText": [
+      "test.1.png"
+    ]
   },
   {
     "date": "04.11.2024 - 25.11.2024",
