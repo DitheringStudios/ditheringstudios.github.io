@@ -140,7 +140,7 @@ function change_order(selection) {
                         // Add images dynamically
                         if (post.images > 0) {
                             post.image_url.forEach(image_url => {
-                                postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                             });
                         }
 
@@ -201,7 +201,7 @@ function change_order(selection) {
                         // Add images dynamically
                         if (post.images > 0) {
                             post.image_url.forEach(image_url => {
-                                postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                             });
                         }
 
@@ -263,7 +263,7 @@ function change_order(selection) {
                             // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -325,7 +325,7 @@ function change_order(selection) {
                             // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -395,7 +395,7 @@ function keepLoading() {
                             // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -461,7 +461,7 @@ function keepLoading() {
                             // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -528,7 +528,7 @@ function keepLoading() {
                                 // Add images dynamically
                                 if (post.images > 0) {
                                     post.image_url.forEach(image_url => {
-                                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                     });
                                 }
 
@@ -595,7 +595,7 @@ function keepLoading() {
                                 // Add images dynamically
                                 if (post.images > 0) {
                                     post.image_url.forEach(image_url => {
-                                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                     });
                                 }
 
@@ -651,7 +651,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Add images dynamically
                 if (post.images > 0) {
                     post.image_url.forEach(image_url => {
-                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                     });
                 }
 
@@ -706,7 +706,7 @@ function load_games() {
                     // Add images dynamically
                     if (game.images > 0) {
                         game.image_url.forEach(image_url => {
-                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                         });
                     }
 
@@ -774,7 +774,7 @@ function keepLoadingGames() {
                             // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -840,7 +840,7 @@ function keepLoadingGames() {
                             // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -910,7 +910,7 @@ function change_order_games(selection) {
                         // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                             });
                         }
 
@@ -971,7 +971,7 @@ function change_order_games(selection) {
                         // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}">`;
                             });
                         }
 
@@ -1030,7 +1030,7 @@ function load_projects() {
                     // Add images dynamically
                     if (game.images > 0) {
                         game.image_url.forEach(image_url => {
-                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}">`;
                         });
                     }
 
@@ -1098,7 +1098,7 @@ function keepLoadingProjects() {
                             // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -1164,7 +1164,7 @@ function keepLoadingProjects() {
                             // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                                 });
                             }
 
@@ -1234,7 +1234,7 @@ function change_order_projects(selection) {
                         // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                             });
                         }
 
@@ -1295,7 +1295,7 @@ function change_order_projects(selection) {
                         // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}" alt=post.imageText>`;
+                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
                             });
                         }
 
