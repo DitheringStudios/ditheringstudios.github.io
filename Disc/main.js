@@ -113,7 +113,7 @@ client.on('threadCreate', async (thread) => {
 
                 let index = 1;
                 for (const attachment of firstMessage.attachments.values()) {
-                    const sanitizedThreadName = thread.name.replace(/[<>:"/\\|?*]/g, '_');
+                    const sanitizedThreadName = thread.name.replace(/[<>:"/\\|?* ']/g, '_');
                     const fileName = `${sanitizedThreadName}${index}.png`;
                     const localPath = `${dirPath}/${fileName}`;
                     const repoPath = `Posts/post_images/${fileName}`;

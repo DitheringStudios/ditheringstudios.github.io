@@ -130,17 +130,15 @@ function change_order(selection) {
                         postElement.classList.add("post");
                         postElement.style.float = "inline-start";
 
-                        // Basic post content
                         let postHTML = `
                       <h2>${post.title}</h2>
                       <p><small>${post.date}</small></p>
                       <p>${post.content}</p>
                   `;
 
-                        // Add images dynamically
                         if (post.images > 0) {
                             post.image_url.forEach(image_url => {
-                                postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                             });
                         }
 
@@ -191,17 +189,15 @@ function change_order(selection) {
                         postElement.classList.add("post");
                         postElement.style.float = "inline-start";
 
-                        // Basic post content
                         let postHTML = `
                       <h2>${post.title}</h2>
                       <p><small>${post.date}</small></p>
                       <p>${post.content}</p>
                   `;
 
-                        // Add images dynamically
                         if (post.images > 0) {
                             post.image_url.forEach(image_url => {
-                                postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                             });
                         }
 
@@ -253,17 +249,15 @@ function change_order(selection) {
                             postElement.classList.add("post");
                             postElement.style.float = "inline-start";
 
-                            // Basic post content
                             let postHTML = `
                         <h2>${post.title}</h2>
                         <p><small>${post.date}</small></p>
                         <p>${post.content}</p>
                       `;
 
-                            // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -315,17 +309,15 @@ function change_order(selection) {
                             postElement.classList.add("post");
                             postElement.style.float = "inline-start";
 
-                            // Basic post content
                             let postHTML = `
                         <h2>${post.title}</h2>
                         <p><small>${post.date}</small></p>
                         <p>${post.content}</p>
                       `;
 
-                            // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -385,17 +377,15 @@ function keepLoading() {
                             postElement.classList.add("post");
                             postElement.style.float = "inline-start";
 
-                            // Basic post content
                             let postHTML = `
                                 <h2>${post.title}</h2>
                                 <p><small>${post.date}</small></p>
                                 <p>${post.content}</p>
                             `;
 
-                            // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -451,17 +441,15 @@ function keepLoading() {
                             postElement.classList.add("post");
                             postElement.style.float = "inline-start";
 
-                            // Basic post content
                             let postHTML = `
                                 <h2>${post.title}</h2>
                                 <p><small>${post.date}</small></p>
                                 <p>${post.content}</p>
                             `;
 
-                            // Add images dynamically
                             if (post.images > 0) {
                                 post.image_url.forEach(image_url => {
-                                    postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -518,17 +506,15 @@ function keepLoading() {
                                 postElement.classList.add("post");
                                 postElement.style.float = "inline-start";
 
-                                // Basic post content
                                 let postHTML = `
                                     <h2>${post.title}</h2>
                                     <p><small>${post.date}</small></p>
                                     <p>${post.content}</p>
                                 `;
 
-                                // Add images dynamically
                                 if (post.images > 0) {
                                     post.image_url.forEach(image_url => {
-                                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                        postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                     });
                                 }
 
@@ -585,17 +571,15 @@ function keepLoading() {
                                 postElement.classList.add("post");
                                 postElement.style.float = "inline-start";
 
-                                // Basic post content
                                 let postHTML = `
                                     <h2>${post.title}</h2>
                                     <p><small>${post.date}</small></p>
                                     <p>${post.content}</p>
                                 `;
 
-                                // Add images dynamically
                                 if (post.images > 0) {
                                     post.image_url.forEach(image_url => {
-                                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                        postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                     });
                                 }
 
@@ -641,17 +625,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 postElement.classList.add("post");
                 postElement.style.float = "inline-start";
 
-                // Basic post content
                 let postHTML = `
                     <h2>${post.title}</h2>
                     <p><small>${post.date}</small></p>
                     <p>${post.content}</p>
                 `;
 
-                // Add images dynamically
                 if (post.images > 0) {
                     post.image_url.forEach(image_url => {
-                        postHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                        postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                     });
                 }
 
@@ -696,17 +678,15 @@ function load_games() {
                     GamePostElement.classList.add("gamePost");
                     GamePostElement.style.float = "inline-start";
 
-                    // Basic post content
                     let gamePostHTML = `
                     <h2>${game.title}</h2>
                     <p><small>${game.date}</small></p>
                     <p>${game.content}</p>
                 `;
 
-                    // Add images dynamically
                     if (game.images > 0) {
                         game.image_url.forEach(image_url => {
-                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                            gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                         });
                     }
 
@@ -764,17 +744,15 @@ function keepLoadingGames() {
                             GamePostElement.classList.add("gamePost");
                             GamePostElement.style.float = "inline-start";
 
-                            // Basic post content
                             let gamePostHTML = `
                                 <h2>${game.title}</h2>
                                 <p><small>${game.date}</small></p>
                                 <p>${game.content}</p>
                             `;
 
-                            // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -830,17 +808,15 @@ function keepLoadingGames() {
                             GamePostElement.classList.add("gamePost");
                             GamePostElement.style.float = "inline-start";
 
-                            // Basic post content
                             let gamePostHTML = `
                                 <h2>${game.title}</h2>
                                 <p><small>${game.date}</small></p>
                                 <p>${game.content}</p>
                             `;
 
-                            // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -900,17 +876,15 @@ function change_order_games(selection) {
                         GamePostElement.classList.add("gamePost");
                         GamePostElement.style.float = "inline-start";
 
-                        // Basic post content
                         let gamePostHTML = `
                       <h2>${game.title}</h2>
                       <p><small>${game.date}</small></p>
                       <p>${game.content}</p>
                   `;
 
-                        // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                             });
                         }
 
@@ -961,17 +935,15 @@ function change_order_games(selection) {
                         GamePostElement.classList.add("gamePost");
                         GamePostElement.style.float = "inline-start";
 
-                        // Basic post content
                         let gamePostHTML = `
                       <h2>${game.title}</h2>
                       <p><small>${game.date}</small></p>
                       <p>${game.content}</p>
                   `;
 
-                        // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}">`;
+                                gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">>`;
                             });
                         }
 
@@ -1020,17 +992,15 @@ function load_projects() {
                     GamePostElement.classList.add("gamePost");
                     GamePostElement.style.float = "inline-start";
 
-                    // Basic post content
                     let gamePostHTML = `
                     <h2>${game.title}</h2>
                     <p><small>${game.date}</small></p>
                     <p>${game.content}</p>
                 `;
 
-                    // Add images dynamically
                     if (game.images > 0) {
                         game.image_url.forEach(image_url => {
-                            gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}">`;
+                            gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">>`;
                         });
                     }
 
@@ -1088,17 +1058,15 @@ function keepLoadingProjects() {
                             GamePostElement.classList.add("gamePost");
                             GamePostElement.style.float = "inline-start";
 
-                            // Basic post content
                             let gamePostHTML = `
                                 <h2>${game.title}</h2>
                                 <p><small>${game.date}</small></p>
                                 <p>${game.content}</p>
                             `;
 
-                            // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -1154,17 +1122,15 @@ function keepLoadingProjects() {
                             GamePostElement.classList.add("gamePost");
                             GamePostElement.style.float = "inline-start";
 
-                            // Basic post content
                             let gamePostHTML = `
                                 <h2>${game.title}</h2>
                                 <p><small>${game.date}</small></p>
                                 <p>${game.content}</p>
                             `;
 
-                            // Add images dynamically
                             if (game.images > 0) {
                                 game.image_url.forEach(image_url => {
-                                    gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                    gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                                 });
                             }
 
@@ -1224,17 +1190,15 @@ function change_order_projects(selection) {
                         GamePostElement.classList.add("gamePost");
                         GamePostElement.style.float = "inline-start";
 
-                        // Basic post content
                         let gamePostHTML = `
                       <h2>${game.title}</h2>
                       <p><small>${game.date}</small></p>
                       <p>${game.content}</p>
                   `;
 
-                        // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                             });
                         }
 
@@ -1285,17 +1249,15 @@ function change_order_projects(selection) {
                         GamePostElement.classList.add("gamePost");
                         GamePostElement.style.float = "inline-start";
 
-                        // Basic post content
                         let gamePostHTML = `
                       <h2>${game.title}</h2>
                       <p><small>${game.date}</small></p>
                       <p>${game.content}</p>
                   `;
 
-                        // Add images dynamically
                         if (game.images > 0) {
                             game.image_url.forEach(image_url => {
-                                gamePostHTML += `<img style="height:50px;width:50px;" src="${image_url}"`;
+                                gamePostHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
                             });
                         }
 
