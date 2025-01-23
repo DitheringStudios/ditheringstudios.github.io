@@ -25,26 +25,26 @@ const commitFileToGitHub = async (filePath, repoPath, commitMessage) => {
                     headers: { Authorization: `token ${GITHUB_TOKEN}` },
                 }
             );
-            return data.sha; // Returns the SHA if file exists
+            return data.sha;
         } catch (error) {
             if (error.response?.status === 404) {
                 console.log(`File not found on GitHub: ${repoPath}. Creating new file.`);
-                return null; // File doesn't exist
+                return null;
             }
             throw error;
         }
     };
 
     try {
-        const fileContent = fs.readFileSync(filePath, 'utf8'); // Read file
-        const sha = await getSha(); // Get SHA if exists
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        const sha = await getSha();
 
         await axios.put(
             `https://api.github.com/repos/${OWNER}/${REPO}/contents/${repoPath}`,
             {
                 message: commitMessage,
-                content: Buffer.from(fileContent).toString('base64'), // Convert to Base64
-                sha: sha || undefined, // Include SHA only if it exists
+                content: Buffer.from(fileContent).toString('base64'),
+                sha: sha || undefined,
                 branch: BRANCH,
             },
             {

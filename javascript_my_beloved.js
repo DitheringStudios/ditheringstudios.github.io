@@ -633,7 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (post.images > 0) {
                     post.image_url.forEach(image_url => {
-                        postHTML += `<img style="height:50px;width:50px" src="${image_url}">`;
+                        postHTML += `<img style="height:50px; width:50px; transform:scale(1); transition:transform 0.3s ease-in-out;" src="${image_url}">`;
                     });
                 }
 
